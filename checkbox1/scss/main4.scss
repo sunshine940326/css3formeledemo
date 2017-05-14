@@ -1,0 +1,54 @@
+$label-width:28px;
+$label-bgcolor:#fcfff4;
+$label-top:4px;
+$label-after-top:2px;
+$label-background-color:rgb(101,141,181);
+body{
+  background: #333;
+}
+.cb-container{
+  text-align: center;
+}
+.roundedOne input[type=checkbox]{
+  visibility: hidden;
+}
+.roundedOne{
+  position: relative;
+  display: block;
+  margin: 50px auto;
+}
+.roundedOne{
+  width: $label-width;
+  height: $label-width;
+  background: $label-bgcolor;
+  border-radius: 50px;
+
+}
+.roundedOne label{
+  position: absolute;
+  width: $label-width - (2*$label-top);
+  height: $label-width - (2*$label-top);
+  top:$label-top;
+  left: $label-top;
+  border-radius: 50px;
+  background: -moz-linear-gradient(top, #222222 0%, #45484d 100%);
+  background: -webkit-linear-gradient(top, #222222 0%, #45484d 100%);
+  background: linear-gradient(to bottom, #222222 0%, #45484d 100%);
+}
+.roundedOne label:after{
+  content: '';
+  position: absolute;
+  width: $label-width - (2*$label-top) - (2*$label-after-top);
+  height: $label-width - (2*$label-top) - (2*$label-after-top);
+  top: $label-after-top;
+  left: $label-after-top;
+  background: $label-background-color;
+  border-radius: 50px;
+  opacity: 0;
+}
+.roundedOne label:hover::after{
+  opacity: 0.3;
+}
+.roundedOne input[type=checkbox]:checked+label:after{
+  opacity: 1;
+}

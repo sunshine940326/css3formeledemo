@@ -1,0 +1,73 @@
+$width:80px;
+$height:30px;
+$line-top:$height/2-1;
+$line-height:2px;
+$line-width:54px;
+$line-background:#111;
+$background-color:#fff;
+$label-width:22px;
+$label-inner-width:20px;
+$label-inner-bgcolor:#333;
+$label-inner-checked-color:rgb(101,141,181);
+body{
+  background: #333;
+}
+.cb-container{
+
+  text-align: center;
+}
+
+.sliderTwo{
+
+  width: $width;
+  height: $height;
+  background: $background-color;
+  margin: 50px auto;
+  position: relative;
+  border-radius: 50px;
+}
+.sliderTwo input[type=checkbox]{
+  visibility: hidden;
+}
+.sliderTwo:after{
+  content: '';
+  position: absolute;
+  top:$line-top;
+  left: $line-top;
+  height: $line-height;
+  width: $line-width;
+  background: $line-background;
+  border-radius: 50px;
+
+}
+.sliderTwo label{
+  display: block;
+  width: $label-width;
+  height: $label-width;
+  cursor: pointer;
+  position: absolute;
+  top:4px;
+  z-index: 1;
+  left: 4px;
+  background: #fcfff4;
+  border-radius: 50px;
+  transition: all 0.4s ease;
+}
+.sliderTwo label:after{
+  content: '';
+  width: $label-inner-width;
+  height: $label-inner-width;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  background: $label-inner-bgcolor;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+.sliderTwo input[type=checkbox]:checked + label {
+  left: $line-width;
+}
+.sliderTwo input[type=checkbox]:checked + label:after {
+  background: $label-inner-checked-color;
+}
